@@ -6,6 +6,8 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   
   <title>Frontend Mentor | Intro section with dropdown navigation</title>
 </head>
@@ -17,27 +19,39 @@
         <img src="./images/logo.svg" alt="">
       </div>
       <div>
-        <ul>
-          <li><a href="">Features</a></li>
-          <li>
-            <a href="">Company</a>
-            <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </li>
-          <li><a href="">Careers</a></li>
-          <li><a href="">About</a></li>
-        </ul>
+        <div id="openMenuBurger"></div>
       </div>
     </div>
-    <div>
-      <ul>
-        <li><a href="">Login</a></li>
-        <li><a href="">Register</a></li>
-      </ul>
+    <div id="menuBurger">
+      <div>
+        <ul>
+          <li data-type="submenu">
+            <a href="#">Features</a>
+            <ul>
+              <li><a href="#"><img src="./images/icon-todo.svg" alt="icon représentant un bloc note">Todo List</a></li>
+              <li><a href="#"><img src="./images/icon-calendar.svg" alt="icon représentant un calendrier">Calendar</a></li>
+              <li><a href="#"><img src="./images/icon-reminders.svg" alt="icon représentant une cloche">Reminders</a></li>
+              <li><a href="#"><img src="./images/icon-planning.svg" alt="icon représentant une horloge">Planning</a></li>
+            </ul>
+          </li>
+          <li data-type="submenu">
+            <a href="#">Company</a>
+            <ul>
+              <li><a href="#">History</a></li>
+              <li><a href="#">Our Team</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+        <ul>
+          <li><a href="#">Login</a></li>
+          <li><a href="#">Register</a></li>
+        </ul>
+        <div id="closeMenuBurger">
+        </div>
+      </div>
     </div>
   </nav>
   <header>
@@ -69,5 +83,6 @@
       </div>
     </div>
   </header>
+  <script src="./js/script.js"></script>
 </body>
 </html>
