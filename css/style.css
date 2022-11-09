@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap');
+
+:root
+{
+    --Almost-White: hsl(0, 0%, 98%);
+    --Medium-Gray: hsl(0, 0%, 41%);
+    --Almost-Black: hsl(0, 0%, 8%);
+}
+
+*
+{
+    font-family: "Epilogue";
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--Almost-Black);
+}
+
+body
+{
+    margin: 0rem;
+    min-height: 100vh;
+    background-color: var(--Almost-White);
+}
+
+nav
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 24px;
+    padding-right: 24px;
+    height: 80px;
+}
+
+nav > div:first-child
+{
+    display: flex;
+    flex-direction: row;
+}
+
+nav > div:first-child > div
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+nav ul
+{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+
+nav > div:first-child > div > ul li:not(:first-child)
+{
+    margin-left: 24px;
+}
+
+nav ul ul
+{
+    display: flex;
+    flex-direction: column;
+}
+
+nav a
+{
+    text-decoration: none;
+    color: var(--Medium-Gray);
+    transition: all .25s ease;
+}
+
+nav a:hover
+{
+    color: var(--Almost-Black);
+    border-color: black;
+}
+
+nav > div:nth-child(2) li:nth-child(2)
+{
+    margin-left: 32px;
+}
+
+nav > div:nth-child(2) li:nth-child(2) a
+{
+    padding: 16px 24px;
+    border: 1px solid var(--Medium-Gray);
+    border-radius: 15px;
+}
+
+/*header*/
+header
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 90vh;
+}
+
+header > div
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header > div:first-child
+{
+    width: 30%;
+}
+
+header > div:first-child h1
+{
+    font-weight: 700;
+    font-size: 80px;
+}
+
+header > div:first-child a
+{
+    text-decoration: none;
+    color: var(--Almost-White);
+    background-color: var(--Almost-Black);
+    border-radius: 15px;
+    padding: 16px 24px;
+    transition: all .25s ease;
+    border: 1px solid var(--Almost-Black);
+    display: inline-block;
+    margin-top: 50px;
+}
+
+header > div:first-child a:hover
+{
+    color: var(--Almost-Black);
+    background-color: transparent;
+}
+
+header > div:first-child p
+{
+    max-width: 80%;
+}
+
+/*logo client*/
+header > div:first-child > div:last-child
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 80px;
+}
+/*fin logo client*/
+
+/*photo*/
+header > div:nth-child(2)
+{
+    height: 100%;
+    width: 50%;
+}
+
+header > div:nth-child(2) > div
+{
+    height: 80%;
+    width: 100%;
+    background-image: url('../images/image-hero-desktop.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/*fin photo*/
