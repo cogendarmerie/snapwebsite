@@ -26,7 +26,6 @@ nav
 {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     padding-left: 24px;
     padding-right: 24px;
     height: 80px;
@@ -45,22 +44,108 @@ nav > div:first-child > div
     justify-content: center;
 }
 
+/*icon ouverture menu burger*/
+nav > div:first-child > div:nth-child(2)
+{
+    display: none;
+}
+
+nav > div:nth-child(2)
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+nav > div:nth-child(2) > div
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 nav ul
 {
+    position: relative;
     list-style-type: none;
     display: flex;
     flex-direction: row;
 }
 
-nav > div:first-child > div > ul li:not(:first-child)
+nav ul > li
+{
+    position: relative;
+}
+
+nav ul li[data-type="submenu"] > a::after
+{
+    content: "";
+    margin-left: 10px;
+    margin-top: 2px;
+    height: 10px;
+    width: 10px;
+    background-image: url('../images/icon-arrow-down.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+nav ul li[data-type="submenu"]:hover > a::after
+{
+    background-image: url('../images/icon-arrow-up.svg');
+}
+
+nav div:nth-child(2) > div > ul > li:not(:first-child)
 {
     margin-left: 24px;
 }
 
-nav ul ul
+nav li[data-type="submenu"] ul
 {
+    position: absolute;
+    background-color: white;
     display: flex;
+    opacity: 0;
+    visibility: hidden;
     flex-direction: column;
+    border-radius: 14px;
+    box-shadow: 0px 5px 30px 1px rgba(0,0,0,0.2);
+    padding: 14px 16px;
+    top: 30px;
+    transition: all .25s ease;
+}
+
+nav li[data-type="submenu"]:hover ul
+{
+    opacity: 1;
+    visibility: visible;
+}
+
+nav > div:nth-child(2) > div > ul:first-child > li:nth-child(1) > ul
+{
+    right: 0;
+}
+
+nav > div:nth-child(2) > div > ul:first-child > li:nth-child(2) > ul
+{
+    left: 0;
+}
+
+nav ul ul > li
+{
+    padding: 8px 10px;
+}
+
+nav ul ul > li img
+{
+    margin-right: 10px;
+}
+
+nav > div:nth-child(2) > div > div
+{
+    display: none;
 }
 
 nav a
@@ -68,6 +153,10 @@ nav a
     text-decoration: none;
     color: var(--Medium-Gray);
     transition: all .25s ease;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    width: max-content;
 }
 
 nav a:hover
@@ -76,16 +165,146 @@ nav a:hover
     border-color: black;
 }
 
-nav > div:nth-child(2) li:nth-child(2)
+nav > div:nth-child(2) li
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+nav > div:nth-child(2) > ul:nth-child(2) li:nth-child(2)
 {
     margin-left: 32px;
 }
 
-nav > div:nth-child(2) li:nth-child(2) a
+nav > div:nth-child(2) > div > ul:nth-child(2) li:nth-child(2) a
 {
-    padding: 16px 24px;
     border: 1px solid var(--Medium-Gray);
-    border-radius: 15px;
+    border-radius: 14px;
+    padding: 12px 20px;
+}
+
+@media screen and (max-width:800px) {
+    nav > div:first-child
+    {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    nav > div:first-child > div:nth-child(2)
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    nav > div:first-child > div:nth-child(2) > #openMenuBurger
+    {
+        display: block;
+        height: 30px;
+        width: 30px;
+        background-image: url('../images/icon-menu.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    nav > div:last-child.open
+    {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.8);
+    }
+
+    nav > div:last-child:not(.open)
+    {
+        display: none;
+    }
+
+    nav > div:last-child > div
+    {
+        background-color: var(--Almost-White);
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 30vw;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 16px 24px;
+        width: auto;
+    }
+
+    nav > div:last-child > div > ul
+    {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav > div:nth-child(2) > div > ul > li:first-child
+    {
+        margin-top: 50px;
+    }
+
+    nav > div:nth-child(2) > div > ul > li:not(:first-child) 
+    {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    nav > div:nth-child(2) > div > ul:nth-child(2) li
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    nav > div:nth-child(2) > div > ul:nth-child(2) a
+    {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    nav > div:nth-child(2) > div > ul:first-child > li[data-type="submenu"] ul 
+    {
+        position: relative;
+        box-shadow: none;
+        border-radius: 0;
+        display: none;
+        opacity: 1;
+        visibility: visible;
+        background-color: transparent;
+        top: 10px;
+    }
+
+    nav > div:nth-child(2) > div > ul:first-child > li[data-type="submenu"]:hover > ul 
+    {
+        display: flex;
+    }
+
+    nav > div:nth-child(2) > div > div
+    {
+        display: block;
+        height: 20px;
+        width: 20px;
+        background-image: url('../images/icon-close-menu.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
 }
 
 /*header*/
@@ -137,6 +356,7 @@ header > div:first-child a:hover
 header > div:first-child p
 {
     max-width: 80%;
+    color: var(--Medium-Gray);
 }
 
 /*logo client*/
@@ -166,3 +386,24 @@ header > div:nth-child(2) > div
     background-position: center;
 }
 /*fin photo*/
+
+@media screen and (max-width:800px) {
+    header
+    {
+        flex-direction: column-reverse;
+    }
+
+    /*photo*/
+    header > div:nth-child(2) > div
+    {
+        height: 50vh;
+        width: 100%;
+    }
+
+    header > div:nth-child(2) > div
+    {
+        height: 100%;
+        width: 100%;
+    }
+    /*fin photo*/
+}
